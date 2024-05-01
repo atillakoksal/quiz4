@@ -1,0 +1,38 @@
+;===== quiz 4 - functions =====
+;== calls a function to add three numbers and assigns the value
+;== to the results variable
+
+_addNums:
+    push  ebp           ;stack base ptr
+    mov  ebp, esp
+    sub  esp, 16        ;allocate space on stack for data
+                        ;moves the stack ptr
+
+    mov  eax, DWORD[ebp + 8]    ;move the num value to the stack
+    add  eax, DWORD[ebp + 12]
+    add  eax, DWORD[ebp + 16]
+    
+    leave
+    ret
+
+section .text
+        global _start
+_start:
+     push  DWORD[num1]      ;add the num value on to the stack
+     push  DWORD[num2]   
+     push  DWORD[num3]   
+
+     call    _addNums  
+
+     mov [result], eax    ;move the value to result
+
+     mov     eax, 1
+     int     0x80
+
+section .bss
+    result resb 1   ;to hold the result variable
+
+section .data
+        num1 DD 30
+        num2 DD 25
+        num3 DD 10
