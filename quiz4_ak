@@ -1,3 +1,4 @@
+```
 ;===== quiz 4 - functions =====
 ;== calls a function to add three numbers and assigns the value
 ;== to the results variable
@@ -36,3 +37,4 @@ section .data
         num1 DD 30
         num2 DD 25
         num3 DD 10
+```
